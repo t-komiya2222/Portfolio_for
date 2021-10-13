@@ -1,0 +1,25 @@
+
+<h1>編集する</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :profile %>
+      <%= f.text_area :profile %>
+
+      <%= f.submit "編集", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

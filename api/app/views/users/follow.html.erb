@@ -1,0 +1,16 @@
+<h1>フォロー中</h1><br>
+<% @user.each do |follow| %>
+  <div class="follow_follower_list">
+    <div class="mini_icon">
+      <% if follow.avatar? %>
+        <%= image_tag follow.avatar.thumb.url %>
+      <% else %>
+        <%= gravatar_for(follow,80) %>
+      <% end %>
+    </div>
+    <div class="follow_follower_profile">
+      <strong><%= link_to follow.name, user_path(follow.id) %></strong><br>
+      <%= follow.profile %>
+    </div>
+  </div>
+<% end %>

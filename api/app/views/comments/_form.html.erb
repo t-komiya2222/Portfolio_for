@@ -1,0 +1,25 @@
+<div class="comment_form">
+  <%= form_with model:Comment.new, url: portfolio_comments_path(@portfolio.id), method: :post,local: true do |f| %>
+    
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <div class="mini_icon">
+      <% if @portfolio.user.avatar? %>
+        <%= image_tag @portfolio.user.avatar.thumb30.url %>
+        <%= f.label :投稿する %>
+      <% else %>
+        <%= gravatar_for(@portfolio.user,30) %>
+        <%= f.label :投稿する %>
+      <% end %>
+    </div>
+
+    <%= f.text_area :body %>
+    
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :portfolio_id %>
+    
+    <div class="comment_form_sub">
+      <%= f.submit '投稿' %>
+    </div>
+  <% end %>
+</div>

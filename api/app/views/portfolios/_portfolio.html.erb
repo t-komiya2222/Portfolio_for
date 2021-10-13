@@ -1,0 +1,20 @@
+<li id="portfolio-<%= portfolio.id %>">
+  <div class="portfolio_wrapper">
+    <div class="portfolio_image">
+      <span class="image">
+        <%= link_to image_tag(portfolio.image.thumb.url), portfolio_path(portfolio.id) %>
+      </span>
+    </div>
+    <div class="omit_name">
+      <strong>
+        <%= portfolio.name %>
+      </strong>
+    </div>
+    <div class="omit_period">
+      <%= portfolio.period %>
+    </div>
+    <div class="omit_content">
+      <%= portfolio.content.truncate(200) %>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@portfolio) do |f| %>
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :イメージ画像 %>
+      <%= f.file_field :image %>
+
+      <%= f.label :作品名 %>
+      <%= f.text_field :name %>
+
+      <%= f.label :作成期間 %>
+      <%= f.text_field :period %>
+
+      <%= f.label :対象 %>
+      <%= f.text_field :target %>
+
+      <%= f.label :問題 %>
+      <%= f.text_field :issue %>
+
+      <%= f.label :解決方法 %>
+      <%= f.text_area :way %>
+
+      <%= f.label :コンテンツ詳細 %>
+      <%= f.text_area :content %>
+
+      <div class="form-group">
+        <%= f.select :status, Portfolio.statuses.keys.map { |k| [t("enums.portfolio.status.#{k}"),k]}, {}, {class: "custom-select w-25"} %>
+      </div>
+      <%= f.submit '更新する', class: "btn btn-large btn-primary" %><br>
+    <% end %>
+  </div>
+</div>

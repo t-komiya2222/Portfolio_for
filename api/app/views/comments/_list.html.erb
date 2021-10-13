@@ -1,0 +1,31 @@
+<div class="comment_list_wrapper">
+  <h2>コメント</h2>
+  <% if @comments.any? %>
+    <% @comments.each do |comment| %>
+      <div class="comment_list">
+        <div class="mini_icon">
+          <% if comment.user.avatar? %>
+            <%= image_tag comment.user.avatar.thumb30.url %>
+          <% else %>
+            <%= gravatar_for(comment.user,30)%>
+          <% end %>
+        </div>
+        <div class="comment_list_name">
+          <strong><%= link_to comment.user.name,user_path(comment.user.id) %></strong>
+        </div>
+        <div class="comment_list_body">
+          <%= safe_join(comment.body.split("\n"),tag(:br)) %>
+        </div>
+        <div class="comment_list_delete">
+          <% if logged_in? && comment.user == current_user %>
+            <%= link_to comment_path(comment), method: :delete do %>
+              <i class="fa fa-times" aria-hidden="true"></i>削除
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="comment_none">コメントがありません。</div>
+  <% end %>
+</div>

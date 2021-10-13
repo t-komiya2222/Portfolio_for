@@ -1,0 +1,54 @@
+<div class=row>
+  <div class="col-md-1">
+    <div class="side_menu">
+      <%# いいね、Twitter連携 %>
+      <% if logged_in? && @portfolio.status == "published" %>
+        <div id="like-btn-<%= @portfolio.id %>">
+          <%= render 'likes/like', portfolio: @portfolio %>
+        </div>
+
+        <%= link_to "https://twitter.com/share?url=#{request.url}/&hashtags=Portfoliofor", title: 'Portfolio for' do %>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  
+  <%# ポートフォリオ %>
+  <div class="col-md-11">
+    <div class="main_content">
+      <div class="mini_icon">
+        <% if @portfolio.user.avatar? %>
+          <%= image_tag @portfolio.user.avatar.thumb30.url %>
+        <% else %>
+          <%= gravatar_for(@portfolio.user,30) %>
+        <% end %>
+        <%= link_to @portfolio.user.name,user_path(@portfolio.user.id) %>
+      </div>
+
+      <%# ユーザー情報 %>
+      <div class="edit_delete_menu">
+        <% if current_user == @portfolio.user %>
+          <%= link_to edit_portfolio_path(@portfolio.id) do %>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>編集   
+          <% end %>
+          <%= link_to @portfolio, method: :delete,data: { confirm: "削除しますか?" } do %>
+            <i class="fa fa-times" aria-hidden="true"></i>削除
+          <% end %>    
+        <% end %>
+      </div>
+
+
+      <h1><%= @portfolio.name %></h1>
+      <%= image_tag @portfolio.image.url %><br>
+      <%= safe_join(@portfolio.content.split("\n"),tag(:br)) %>
+    </div>
+
+      <%= render "comments/list" %>
+
+      <%# コメント %>
+      <% if logged_in? && @portfolio.status == "published" %>
+        <%= render "comments/form" %>
+      <% end %> 
+  </div>
+</div>

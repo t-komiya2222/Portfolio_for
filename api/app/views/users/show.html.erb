@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-3">
+
+    <div class="user_information">
+      <div class="mini_icon">
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.thumb.url %>
+        <% else %>
+          <%= gravatar_for(@user,80) %>
+        <% end %>
+      </div>
+
+      <strong><%= @user.name %></strong><br>
+      <%= @user.profile %><br>
+      <div class="follow_follower">
+        <%= link_to contloller:"users", action: "follow", id:@user do %>
+          <%= @user.following_users.count %>フォロー 
+        <% end %>
+        <%= link_to contloller:"users", action: "follower", id:@user do%>
+          <%= @user.follower_users.count %>フォロワー <br>
+        <% end %>
+      </div>
+      
+      <% if current_user == @user.id %>
+        <%= link_to edit_path do %>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>ユーザー編集
+        <% end %>
+        <%= link_to user_path, method: 'delete', data: { confirm: "削除しますか?" } do %>
+          <i class="fa fa-times" aria-hidden="true"></i>ユーザー削除
+        <% end %>
+        <%= render 'follow_form' if logged_in? %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="col-md-9">
+    <% if @user.portfolios.any? %>
+        <ol class="portfolios">
+          <h3>Portfolios (<%= @user.portfolios.published.count %>)</h3>
+          <%= render @portfolio %>
+        </ol>
+    <% end %>
+  </div>
+</div>

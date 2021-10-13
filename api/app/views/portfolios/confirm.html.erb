@@ -1,0 +1,22 @@
+<div class="draft-wrapper">
+  <h3>下書き一覧</h3>
+  <% if @draft.any? %>
+    <div class="row">
+      <% @draft.each do |draft_list| %>
+        <div class="col-md-3">
+          <div class="draft_list">
+            <%= link_to image_tag(draft_list.image.thumb.url), portfolio_path(draft_list.id) %><br>
+            <div class="draft_list_name">
+              <strong><%= draft_list.name %></strong><br>
+            </div>
+            <div class="draft_list_user_content">
+              <%= draft_list.content.truncate(30) %><br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    下書きがありません。
+  <% end %>
+</div>
