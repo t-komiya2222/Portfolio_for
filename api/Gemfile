@@ -64,3 +64,8 @@ gem 'mini_magick'
 
 #twitter
 gem 'meta-tags'
+
+#production
+group :production do
+  gem 'unicorn', '5.4.1'
+end
