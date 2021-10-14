@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get 'confirm'
     end
   end
+  
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: :destroy
 end

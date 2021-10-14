@@ -14,7 +14,7 @@
     </div>
   </div>
   
-  <%# ポートフォリオ %>
+  <%# ユーザー情報 %>
   <div class="col-md-11">
     <div class="main_content">
       <div class="mini_icon">
@@ -26,7 +26,7 @@
         <%= link_to @portfolio.user.name,user_path(@portfolio.user.id) %>
       </div>
 
-      <%# ユーザー情報 %>
+      <%# 編集 削除 %>
       <div class="edit_delete_menu">
         <% if current_user == @portfolio.user %>
           <%= link_to edit_portfolio_path(@portfolio.id) do %>
@@ -38,15 +38,37 @@
         <% end %>
       </div>
 
-
+      <%# ポートフォリオ %>
       <h1><%= @portfolio.name %></h1>
-      <%= image_tag @portfolio.image.url %><br>
-      <%= safe_join(@portfolio.content.split("\n"),tag(:br)) %>
+      <%= image_tag @portfolio.image.url %>
+      <div class="portfolio_content_wrapper">
+        <table>
+          <tbody>
+            <tr>
+              <td>作成期間:</td>
+              <td><%= @portfolio.period %></td>
+            </tr>
+            <tr>
+              <td>対象:</td>
+              <td><%= @portfolio.target %></td>
+            </tr>
+            <tr>
+              <td>問題:</td>
+              <td><%= @portfolio.issue %></td>
+            </tr>
+            <tr>
+              <td>解決策:</td>
+              <td><%= @portfolio.way %></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="portfolio_content"><%= safe_join(@portfolio.content.split("\n"),tag(:br)) %></p>
+      </div>
     </div>
 
+      <%# コメント %>
       <%= render "comments/list" %>
 
-      <%# コメント %>
       <% if logged_in? && @portfolio.status == "published" %>
         <%= render "comments/form" %>
       <% end %> 

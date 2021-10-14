@@ -314,13 +314,14 @@ aside {
   .omit_name{
     grid-row: 1 / 2;
     grid-column: 3 / 4;
-    line-height: 4em;
+    line-height: 3em;
     padding-left: 5px;
   }
 
   .omit_period{
     grid-row: 2 / 3;
     grid-column: 3 / 4;
+    line-height: 3em;
     padding-left: 5px;
   }
 
@@ -329,6 +330,7 @@ aside {
     grid-column: 3 / 4;
     margin: 0px;
     padding-left: 5px;
+    overflow-wrap: anywhere;
   }
 }
 
@@ -376,6 +378,16 @@ aside {
     float: right;
     text-align: right;
     padding:10px 0px;
+  }
+
+  .portfolio_content_wrapper{
+    text-align: left;
+    overflow-wrap: break-word;
+    padding-top: 20px;
+
+    .portfolio_content{
+      padding-top: 10px;
+    }
   }
 }
 

@@ -19,6 +19,7 @@
         <%= link_to contloller:"users", action: "follower", id:@user do%>
           <%= @user.follower_users.count %>フォロワー <br>
         <% end %>
+        <%= render 'follow_form' if logged_in? %>
       </div>
       
       <% if current_user == @user.id %>
@@ -28,7 +29,6 @@
         <%= link_to user_path, method: 'delete', data: { confirm: "削除しますか?" } do %>
           <i class="fa fa-times" aria-hidden="true"></i>ユーザー削除
         <% end %>
-        <%= render 'follow_form' if logged_in? %>
       <% end %>
     </div>
   </div>
