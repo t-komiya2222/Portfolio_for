@@ -1,5 +1,5 @@
 # rootパスのディレクトリを指定
-root_path = File.expand_path('/var/www/Portfolio_for/api', __FILE__)
+root_path = "/var/www/Portfolio_for/api"
 
 # アプリケーションサーバの性能を決定する
 worker_processes 2
