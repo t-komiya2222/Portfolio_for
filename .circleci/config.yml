@@ -11,11 +11,11 @@ jobs:
           command: echo "CircleCI Test"
     deploy:
       machine:
-          image: circleci/classic:edge
-        steps:
-          - checkout
-          - add_ssh_keys:
-          - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/Portfolio_for/ && git pull'
+        image: circleci/classic:edge
+      steps:
+        - checkout
+        - add_ssh_keys:
+        - run: ssh ${USER_NAME}@${HOST_NAME} 'cd /var/www/Portfolio_for/ && git pull'
  
 workflows:
   version: 2
