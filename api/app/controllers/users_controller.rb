@@ -42,7 +42,6 @@ class UsersController < ApplicationController
 
   def follower
     @user = User.find(params[:id])
-    binding.pry
     @user = @user.follower_users
   end
 
