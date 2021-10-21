@@ -22,7 +22,7 @@
         <%= render 'follow_form' if logged_in? %>
       </div>
       
-      <% if current_user == @user.id %>
+      <% if current_user.id == @user.id %>
         <%= link_to edit_path do %>
           <i class="fa fa-pencil-square-o" aria-hidden="true"></i>ユーザー編集
         <% end %>
