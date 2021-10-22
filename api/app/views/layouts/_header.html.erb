@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Portfolio for ...", root_url, id: "logo" %>
+    <%= link_to "Portfolio for ...", root_url, id: "logo", data: {"turbolinks" => false} %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>

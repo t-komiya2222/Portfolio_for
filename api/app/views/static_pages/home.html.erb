@@ -62,9 +62,9 @@
   </div>
 
   <div id="scroll_top">
-    <a href="#", class: "data-turbolinks": false>
-        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-    </a>
+    <%= link_to root_url, data: {"turbolinks" => false} do %>
+      <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    <% end %>
   </div>
 </div>
 
