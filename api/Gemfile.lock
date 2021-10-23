@@ -89,6 +89,8 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
     ffi (1.15.4)
@@ -242,6 +244,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   carrierwave
+  enum_help
   font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
