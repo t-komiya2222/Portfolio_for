@@ -2,10 +2,10 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: 'WEBエンジニア転職希望者アプリ',
-      title: 'Portfolio for ...',
+      title: 'Portfoliofor',
       reverse: true,
       separator: '|',
-      description: 'WEB未経験エンジニアのポートフォリオ投稿サイトです。',
+      description: 'WEBエンジニアの為のポートフォリオ投稿サイト。共有の場としてして利用してください。',
       keywords: '転職者,Web',
       canonical: request.original_url,
       noindex: ! Rails.env.production?,
@@ -13,9 +13,24 @@ module ApplicationHelper
         { href: image_url('favicon.jpeg') },
         { href: image_url('OGP.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
       ],
+      og: {
+        site_name: 'WEBエンジニア転職希望者アプリ',
+        title: 'Portfoliofor',
+        description: 'WEBエンジニアの為のポートフォリオ投稿サイト。共有の場としてして利用してください。', 
+        type: 'website',
+        url: request.original_url,
+        image: image_url('OGP.png'),
+        locale: 'ja_JP',
+      },
       twitter: {
         card: 'summary_large_image',
-        site: '@test',
+        site: 'WEBエンジニア転職希望者アプリ',
+        title: 'Portfoliofor',
+        description: 'WEBエンジニアの為のポートフォリオ投稿サイト。共有の場としてして利用してください。',
+        type: 'website',
+        url: request.original_url,
+        image: image_url('OGP.png'),
+        locale: 'ja_JP',
       }
     }
   end
