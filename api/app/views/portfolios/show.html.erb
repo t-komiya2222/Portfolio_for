@@ -7,7 +7,7 @@
           <%= render 'likes/like', portfolio: @portfolio %>
         </div>
 
-        <%= link_to "https://twitter.com/share?url=#{request.url}/&hashtags=Portfoliofor", title: 'Portfolio for' do %>
+        <%= link_to "https://twitter.com/share?url=#{request.url}/&hashtags=Portfoliofor", title: 'Portfolio for',image: image_url('OGP.png') do %>
           <i class="fa fa-twitter" aria-hidden="true"></i>
         <% end %>
       <% end %>
