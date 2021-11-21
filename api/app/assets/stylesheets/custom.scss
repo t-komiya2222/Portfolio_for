@@ -124,7 +124,6 @@ input {
 }
 
 /* portfolios */
-
 .portfolios {
   background-color: white;
   list-style: none;
@@ -166,6 +165,11 @@ aside {
 }
 
 /* 共通 */
+.requiredform:after{
+  color: #E00;
+  content: " *";
+}
+
 .mini_icon{
   img{
     border-radius: 50%;

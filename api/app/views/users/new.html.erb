@@ -9,16 +9,16 @@
       <%= f.label :アバター %>
       <%= f.file_field :avatar %>
 
-      <%= f.label :ユーザー名 %>
+      <%= f.label :ユーザー名, class: "requiredform" %>
       <%= f.text_field :name %>
 
-      <%= f.label :メールアドレス %>
+      <%= f.label :メールアドレス, class: "requiredform" %>
       <%= f.text_field :email %>
 
-      <%= f.label :パスワード %>
+      <%= f.label :パスワード, class: "requiredform" %>
       <%= f.password_field :password %>
 
-      <%= f.label :パスワード再入力, "Confirmation" %>
+      <%= f.label :パスワード再入力, class: "requiredform" %>
       <%= f.password_field :password_confirmation %>
 
       <%= f.label :プロフィール　※120文字まで %>
