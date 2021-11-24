@@ -170,6 +170,11 @@ aside {
   content: " *";
 }
 
+.requiredformimage:after{
+  color: #E00;
+  content: " *";
+}
+
 .mini_icon{
   img{
     border-radius: 50%;
